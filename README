@@ -1,0 +1,10 @@
+
+【Step 1: model training】
+python3 P01.train_drop_tdnn.py --savedata_dir=./TEST --phonedata_dir=./TEST_phone --savemodel_name=DROP_TDNN_ResPEL --batch_size=128 --epochs=10 --start_steps=0 --is_frame_loss=True --is_reconstruct_loss=True --is_multiple_embed=True --is_res_connect=True --device_nums=0,1,2,3
+
+【Step 2: speaker embedding extraction】
+python3 P02.extract_drop_tdnn_embedding.py --savemodel_name=DROP_TDNN_ResPEL --savedata_dir=./TEST --saveembedding_name=TEST --is_multiple_embed=True --is_res_connect=True --is_reconstruct_loss=True --load_steps=1300000 --start_file_index=0 --device_nums=0
+
+【Step 3: scoring】
+python3 P03.get_triallist_serial_feature.py --savemodel_name=DROP_TDNN_ResPEL --trainembedding_name=TEST --testembedding_name=TEST --triallist_dir=trials_test_VoxCeleb1_cleaned --load_steps=1300000 --embedding_type=1 --prepare_data_yn=True
+
