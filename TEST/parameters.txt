@@ -1,0 +1,5 @@
+kaldifeature_dir=/datatank/qbhong75_data/speech-stuff/exp/voxceleb_challenge/stuff/data_mfcc80/train_combined_no_sil
+feature_type=mfcc
+feature_dim=80
+utt_num=300
+utt_shift=300
